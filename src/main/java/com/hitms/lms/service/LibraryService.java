@@ -37,6 +37,12 @@ public class LibraryService {
         return books.size();
     }
 
+    /** Returns true if the book exists and is not currently issued. */
+    public boolean isBookAvailable(String title) {
+        Book book = findBook(title);
+        return book != null && !book.isIssued();
+    }
+
     private Book findBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
