@@ -14,6 +14,9 @@ public class LibraryService {
 
     /** Issues a book; returns true if it existed and was available. */
     public boolean issueBook(String title) {
+        if (title == null || title.isBlank()) {
+            return false;
+        }
         Book book = findBook(title);
         if (book == null || book.isIssued()) {
             return false;
