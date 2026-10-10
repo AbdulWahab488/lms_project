@@ -12,7 +12,7 @@ public class LibraryService {
         books.add(new Book(title));
     }
 
-    /** Issues a book; returns true if it existed and was available. */
+    /** Issues a single copy; returns false if none is left or the title is invalid. */
     public boolean issueBook(String title) {
         if (title == null || title.isBlank()) {
             return false;
